@@ -30,6 +30,7 @@
     "babel-preset-expo": "^7.0.0",
     "jest-expo": "^35.0.0",
     "jetifier": "^1.6.4",
+    "lodash": "^4.17.15",
     "typescript": "^3.4.5"
   },
   "jest": {
