@@ -50,7 +50,7 @@ export default function App() {
 
   useEffect(() => {
     pc.current = new RTCPeerConnection({
-      iceServers: [{ url: "stun:stun.l.google.com:19302" }]
+      iceServers: [{ urls: "stun:stun.services.mozilla.com" }]
     });
 
     socket.current = SocketIOClient("http://192.168.48.27:3000");
