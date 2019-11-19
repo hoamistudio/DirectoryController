@@ -32,6 +32,10 @@ export default function App() {
   const makeOffer = () => {
     if (pc.current) {
       console.log("make offer");
+      pc.current.onicecandidate = event => {
+        console.log("on iceeeee");
+        socket.current.emit("data", event.candidate);
+      };
       pc.current.createOffer().then(offer => {
         pc.current.setLocalDescription(offer).then(() => {
           socket.current.emit("MAKE_OFFER", offer);
@@ -46,11 +50,6 @@ export default function App() {
     pc.current = new RTCPeerConnection({
       iceServers: [{ url: "stun:stun.l.google.com:19302" }]
     });
-
-    pc.current.onicecandidate = event => {
-      console.log("on iceeeee");
-      socket.current.emit("data", event.candidate);
-    };
 
     socket.current = SocketIOClient("http://192.168.48.27:3000");
 
