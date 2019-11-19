@@ -37,7 +37,9 @@ export default function App() {
         socket.current.emit("data", event.candidate);
       };
       pc.current.createOffer().then(offer => {
+        console.log("offer: ", offer);
         pc.current.setLocalDescription(offer).then(() => {
+          console.log("set local description: ", offer);
           socket.current.emit("MAKE_OFFER", offer);
         });
       });
