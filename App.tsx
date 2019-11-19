@@ -53,7 +53,7 @@ export default function App() {
       iceServers: [{ urls: "stun:stun.services.mozilla.com" }]
     });
 
-    socket.current = SocketIOClient("http://192.168.48.27:3000");
+    socket.current = SocketIOClient("http://207.148.65.203:3000");
 
     socket.current.on("PEERS_LIST", peers => {
       console.log("list peers: ", peers);
