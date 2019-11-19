@@ -52,7 +52,7 @@ export default function App() {
     pc.current = new RTCPeerConnection({
       iceServers: [{ urls: "stun:stun.services.mozilla.com" }]
     });
-
+    console.log("server: ", "http://207.148.65.203:3000");
     socket.current = SocketIOClient("http://207.148.65.203:3000");
 
     socket.current.on("PEERS_LIST", peers => {
